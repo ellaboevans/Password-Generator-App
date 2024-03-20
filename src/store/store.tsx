@@ -147,10 +147,6 @@ export const useStore = create<Store>((set, get) => ({
     }
   },
 
-  // setStrengthValue: () => {
-  //   set({ strengthValue: 1 });
-  // },
-
   // Set to clipboard
   setToClipboard: () => {
     const { password } = get();

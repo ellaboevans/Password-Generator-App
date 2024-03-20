@@ -24,3 +24,12 @@ export const BREAKPOINTS = {
   TABLET: "48em",
   DESKTOP: "90em",
 };
+
+// excess height to improve interactive area / accessibility
+export const HEIGHT = "36px";
+export const THUMB_HEIGHT = 36;
+export const TRACK_HEIGHT = "16px";
+
+// colours for the slider track
+export const UPPER_BACKGROUND = `linear-gradient(to bottom, ${COLOR_VERY_DARK_GREY}, ${COLOR_VERY_DARK_GREY}) 100% 50% / 100% ${TRACK_HEIGHT} no-repeat transparent`;
+export const LOWER_BACKGROUND = `linear-gradient(to bottom, ${COLOR_GREEN}, ${COLOR_GREEN}) 100% 50% / 100% ${TRACK_HEIGHT} no-repeat transparent`;

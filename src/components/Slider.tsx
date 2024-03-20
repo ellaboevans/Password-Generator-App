@@ -5,19 +5,13 @@ import {
   COLOR_GREEN,
   COLOR_VERY_DARK_GREY,
   COLOR_WHITE,
+  HEIGHT,
+  LOWER_BACKGROUND,
+  THUMB_HEIGHT,
+  UPPER_BACKGROUND,
 } from "../utils/constants";
 import { SliderProps } from "../types/types";
 import { makeLongShadow } from "../helpers/helpers";
-
-// excess height to improve interactive area / accessibility
-const height = "36px";
-const thumbHeight = 36;
-const trackHeight = "16px";
-
-// colours
-
-const upperBackground = `linear-gradient(to bottom, ${COLOR_VERY_DARK_GREY}, ${COLOR_VERY_DARK_GREY}) 100% 50% / 100% ${trackHeight} no-repeat transparent`;
-const lowerBackground = `linear-gradient(to bottom, ${COLOR_GREEN}, ${COLOR_GREEN}) 100% 50% / 100% ${trackHeight} no-repeat transparent`;
 
 function Slider({ min, max }: SliderProps) {
   const { sliderValue, moveSlider } = useStore((state) => ({
@@ -55,7 +49,7 @@ const Range = styled.input`
   appearance: none;
   width: 100%;
   margin: 0;
-  height: ${height};
+  height: ${HEIGHT};
   cursor: pointer;
 
   &:focus {
@@ -64,15 +58,15 @@ const Range = styled.input`
 
   &::-webkit-slider-runnable-track {
     width: 100%;
-    height: ${height};
-    background: ${lowerBackground};
+    height: ${HEIGHT};
+    background: ${LOWER_BACKGROUND};
   }
 
   &::-webkit-slider-thumb {
     position: relative;
     appearance: none;
-    height: ${thumbHeight}px;
-    width: ${thumbHeight}px;
+    height: ${THUMB_HEIGHT}px;
+    width: ${THUMB_HEIGHT}px;
     background: ${COLOR_WHITE};
     border-radius: 100%;
     border: 0;
@@ -83,21 +77,21 @@ const Range = styled.input`
   }
 
   &::-moz-range-progress {
-    background: ${lowerBackground};
+    background: ${LOWER_BACKGROUND};
   }
 
   &::-moz-range-track,
   &::-moz-range-progress {
     width: 100%;
-    height: ${height};
-    background: ${upperBackground};
+    height: ${HEIGHT};
+    background: ${UPPER_BACKGROUND};
   }
 
   &::-moz-range-thumb {
     appearance: none;
     margin: 0;
-    height: ${thumbHeight};
-    width: ${thumbHeight};
+    height: ${THUMB_HEIGHT};
+    width: ${THUMB_HEIGHT};
     background: ${COLOR_WHITE};
     border-radius: 100%;
     border: 0;
@@ -105,7 +99,7 @@ const Range = styled.input`
   }
 
   width: 100%;
-  height: ${height}px;
+  height: ${HEIGHT};
   border: 0;
   /* color needed to hide track marks */
   color: transparent;
