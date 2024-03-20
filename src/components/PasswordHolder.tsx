@@ -43,6 +43,7 @@ const CardWrapper = styled.div`
   @media (max-width: ${BREAKPOINTS.MOBILE}) {
     width: 372px;
     max-width: 360px;
+    padding-left: 1.2rem;
   }
 `;
 
