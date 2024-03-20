@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {
+  BREAKPOINTS,
   COLOR_DARK_GREY,
   COLOR_GREEN,
   COLOR_GREY,
@@ -8,7 +9,6 @@ import {
 } from "./constants";
 import { ButtonProps, HeaderProps } from "../types/types";
 
-// Button
 export const Button = styled.button<ButtonProps>`
   padding: 13px 20px;
   border: none;
@@ -27,6 +27,12 @@ export const Button = styled.button<ButtonProps>`
   border: 0.1rem solid ${COLOR_GREEN};
   transition: all 0.3s;
   font-family: "JetBrains Mono", monospace;
+
+  @media (max-width: ${BREAKPOINTS.MOBILE}) {
+    font-size: 18px;
+    padding: 10px 15px;
+  }
+
   &:hover {
     background-color: ${COLOR_DARK_GREY};
     color: ${COLOR_GREEN};
@@ -52,6 +58,10 @@ export const Heading_Large = styled.h2<HeaderProps>`
     props.currentpassword === DEFAULT_PASSWORD
       ? COLOR_GREY
       : COLOR_WHITE};
+  @media (max-width: ${BREAKPOINTS.MOBILE}) {
+    font-size: 22px;
+    padding: 0.3rem 0;
+  }
 `;
 
 export const Heading_Medium = styled.h1`
@@ -79,6 +89,9 @@ export const Body_Medium_2 = styled.p`
   font-family: "JetBrains Mono", monospace;
   font-weight: bold;
   color: ${COLOR_GREY};
+  @media (max-width: ${BREAKPOINTS.MOBILE}) {
+    font-size: 18px;
+  }
 `;
 
 export const SliderCounter = styled.p`
@@ -86,4 +99,8 @@ export const SliderCounter = styled.p`
   font-family: "JetBrains Mono", monospace;
   font-weight: bold;
   color: ${COLOR_GREEN};
+
+  @media (max-width: ${BREAKPOINTS.MOBILE}) {
+    font-size: 24px;
+  }
 `;

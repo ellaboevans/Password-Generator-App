@@ -20,7 +20,7 @@ export const COLOR_GREEN = "#A4FFAF";
 
 // DEVICE BREAKPOINTS
 export const BREAKPOINTS = {
-  MOBILE: "23.44em",
+  MOBILE: "500px",
   TABLET: "48em",
   DESKTOP: "90em",
 };
