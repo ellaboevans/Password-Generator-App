@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {
+  BREAKPOINTS,
   COLOR_GREEN,
   COLOR_VERY_DARK_GREY,
   COLOR_WHITE,
@@ -7,8 +8,6 @@ import {
 import { CheckBoxProps } from "../types/types";
 
 function CheckBox({ text, id, setter, checked }: CheckBoxProps) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-
   return (
     <Container>
       <input
@@ -27,7 +26,6 @@ function CheckBox({ text, id, setter, checked }: CheckBoxProps) {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
   & label {
     cursor: pointer;
     display: flex;
@@ -43,8 +41,12 @@ const Container = styled.div`
       content: "";
       width: 20px;
       height: 20px;
-      margin: 0 2.4rem 2rem 0;
+      margin: 0 1rem 1.5rem 0;
       border: 0.2rem solid ${COLOR_WHITE};
+
+      @media (max-width: ${BREAKPOINTS.MOBILE}) {
+        margin: 0 0.5rem 1rem 0;
+      }
     }
   }
   & input[type="checkbox"] {

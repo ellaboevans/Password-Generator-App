@@ -17,11 +17,11 @@ function App() {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 32px;
+  gap: 0.8rem;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
+  width: 100dvw;
   color: ${COLOR_GREY};
   background-color: ${COLOR_VERY_DARK_GREY};
 `;

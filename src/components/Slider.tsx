@@ -22,7 +22,6 @@ const lowerBackground = `linear-gradient(to bottom, ${COLOR_GREEN}, ${COLOR_GREE
 function Slider({ min, max }: SliderProps) {
   const { sliderValue, moveSlider } = useStore((state) => ({
     sliderValue: state.sliderValue,
-    // setSliderValue: state.setSliderValue,
     moveSlider: state.moveSlider,
   }));
 
@@ -146,7 +145,7 @@ const HeadingContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 18px;
+  margin-bottom: 0.5rem;
 `;
 
 export default Slider;

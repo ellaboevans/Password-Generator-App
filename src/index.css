@@ -13,5 +13,5 @@
 
 body {
   font-family: "JetBrains Mono", monospace;
-  overflow-x: hidden;
+  overflow: hidden;
 }

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {
+  BREAKPOINTS,
   COLOR_DARK_GREY,
   MAX_PASSWORD_LENGTH,
   MIN_PASSWORD_LENGTH,
@@ -81,11 +82,17 @@ function Configuration() {
 }
 
 const Wrapper = styled.div`
-  width: 540px;
+  width: 500px;
   background-color: ${COLOR_DARK_GREY};
   display: flex;
   flex-direction: column;
-  padding: 32px;
+  padding: 0.9rem 2rem;
+
+  @media (max-width: ${BREAKPOINTS.MOBILE}) {
+    width: 372px;
+    max-width: 360px;
+    padding: 2rem 1rem;
+  }
 `;
 
 export default Configuration;
