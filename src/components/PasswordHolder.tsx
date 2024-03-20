@@ -49,7 +49,7 @@ const CardWrapper = styled.div`
 const PasswordContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 90%;
+  width: 92%;
 `;
 
 const IconContainer = styled.div`
@@ -83,6 +83,10 @@ const CopyText = styled.span`
   font-weight: bold;
   text-transform: uppercase;
   font-family: "JetBrains Mono", monospace;
+
+  @media (max-width: ${BREAKPOINTS.MOBILE}) {
+    font-size: 16px;
+  }
 `;
 
 export default PasswordHolder;

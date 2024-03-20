@@ -49,8 +49,8 @@ export const Button = styled.button<ButtonProps>`
 // TYPOGRAPHY STYLES WITH JETBRAINS MONO FONT
 export const Heading_Large = styled.h2<HeaderProps>`
   display: flex;
-  flex: 1;
   font-size: 32px;
+  flex: 1;
   font-weight: bold;
   font-family: "JetBrains Mono", monospace;
   color: ${(props) =>
