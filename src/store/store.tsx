@@ -16,28 +16,16 @@ import { generatePassword } from "../helpers/helpers";
 import { Store } from "../types/types";
 
 export const useStore = create<Store>((set, get) => ({
+  // Default Password Values
   password: "P4$5W0rD1",
-  setPassword: (password) => set({ password }),
 
   // HanldSlider Move
   sliderValue: MIN_PASSWORD_LENGTH,
-  setSliderValue: (sliderValue) => set({ sliderValue }),
   moveSlider: (e) => {
     const target = e.target as HTMLInputElement;
-
-    const min = target.min;
-    const max = target.max;
     const value = target.value;
 
     set({ sliderValue: Number(value) });
-
-    target.style.backgroundSize =
-      ((Number(value) - Number(min)) * 100) / (Number(max) - Number(min)) +
-      "% 100%";
-  },
-
-  getSliderValue: () => {
-    set({ sliderValue: 1 });
   },
 
   // Handle Checkbox Change
@@ -90,7 +78,6 @@ export const useStore = create<Store>((set, get) => ({
 
   // Handle Loading State
   isLoading: false,
-  setIsLoading: (isLoading) => set({ isLoading }),
 
   validatePasswordStrength: (password) => {
     let strength = 0;
