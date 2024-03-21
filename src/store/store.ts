@@ -135,7 +135,7 @@ export const useStore = create<Store>((set, get) => ({
   },
 
   // Set to clipboard
-  setToClipboard: () => {
+  setCopyToClipboard: () => {
     const { password } = get();
     if (navigator.clipboard) {
       navigator.clipboard.writeText(password);

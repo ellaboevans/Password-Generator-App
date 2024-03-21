@@ -48,7 +48,7 @@ Users should be able to:
 - [Vite](https://vitejs.dev/) - For build and development
 - [Styled Components](https://styled-components.com/) - For styles
 - [Zustand](https://github.com/pmndrs/zustand) - For State Management
-- [Vercl](https://vercel.com) - For deployment
+- [Vercel](https://vercel.com) - For deployment
 
 ### What I Learned
 
@@ -89,7 +89,7 @@ generatePassword: () => {
 };
 
 // Copy Password to Computer's Clipboard Snippet
-setToClipboard: () => {
+setCopyToClipboard: () => {
   const { password } = get();
   if (navigator.clipboard) {
     navigator.clipboard.writeText(password);
