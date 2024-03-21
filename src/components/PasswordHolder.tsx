@@ -10,9 +10,9 @@ import CopyIcon from "./CopyIcon";
 import { useStore } from "../store/store";
 
 function PasswordHolder() {
-  const { password, setToClipboard, isLoading } = useStore((state) => ({
+  const { password, setCopyToClipboard, isLoading } = useStore((state) => ({
     password: state.password,
-    setToClipboard: state.setToClipboard,
+    setCopyToClipboard: state.setCopyToClipboard,
     isLoading: state.isLoading,
   }));
   return (
@@ -23,7 +23,7 @@ function PasswordHolder() {
         </Heading_Large>
         {isLoading && <CopyText>Copied</CopyText>}
       </PasswordContainer>
-      <IconContainer onClick={setToClipboard}>
+      <IconContainer onClick={setCopyToClipboard}>
         <CopyIcon fill={COLOR_GREEN} class="icon" />
       </IconContainer>
     </CardWrapper>

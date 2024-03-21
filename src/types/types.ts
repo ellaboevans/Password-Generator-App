@@ -14,7 +14,7 @@ export type Store = {
   name: string;
   generatePassword: () => void;
   isLoading: boolean;
-  setToClipboard: () => void;
+  setCopyToClipboard: () => void;
   strengthValue: number;
   validatePasswordStrength: (password: string) => number;
 };

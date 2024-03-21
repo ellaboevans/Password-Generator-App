@@ -1,26 +1,24 @@
-# Frontend Mentor - Password generator app solution
+# Password Generator App Solution
 
-This is a solution to the [Password generator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the Password Generator App Challenge Provided to me by [Amalitech](https://amalitech.org).
 
-## Table of contents
+## Table of Contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
+  - [The Challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
+- [My Process](#my-process)
+  - [Built With](#built-with)
+  - [What I Learned](#what-i-learned)
+  - [Continued Development](#continued-development)
+  - [Useful Resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
-### The challenge
+### The Challenge
 
 Users should be able to:
 
@@ -32,83 +30,115 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Desktop-Screenshot](./screenshots/desktop-screenshot.png)
+![Mobile-Screenshot](./screenshots/mobile-screenshot.png)
+![Tablet-Screenshot](./screenshots/tablet-screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [View Source Code](https://github.com/ellaboevans/Password-Generator-App)
+- Live Site URL: [View Live Site](https://evans-password-generator.vercel.app)
 
-## My process
+## My Process
 
-### Built with
+### Built With
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
+- [Vite](https://vitejs.dev/) - For build and development
 - [Styled Components](https://styled-components.com/) - For styles
+- [Zustand](https://github.com/pmndrs/zustand) - For State Management
+- [Vercel](https://vercel.com) - For deployment
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+### What I Learned
 
-### What I learned
+During this project, I learned how to efficiently manage state using Zustand, which improved the performance of the app. I also gained more experience in styling with Styled Components, ensuring a responsive layout for various screen sizes.
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+// Generate Password Snippet
+generatePassword: () => {
+  const {
+    isUppercase,
+    isLowercase,
+    includeNumbers,
+    includeSymbols,
+    sliderValue = MIN_PASSWORD_LENGTH,
+  } = get();
+
+  try {
+    set({ isLoading: true });
+
+    const generatedPassword = generatePassword(
+      sliderValue,
+      isUppercase,
+      isLowercase,
+      includeNumbers,
+      includeSymbols
+    );
+
+    set({ password: generatedPassword });
+    const strength = get().validatePasswordStrength(generatedPassword);
+    set({ strengthValue: strength });
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log(error.message);
+    }
+  } finally {
+    set({ isLoading: false });
+  }
+};
+
+// Copy Password to Computer's Clipboard Snippet
+setCopyToClipboard: () => {
+  const { password } = get();
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(password);
+    set({ isLoading: true });
+    setTimeout(() => {
+      set({ isLoading: false });
+    }, 3000);
+  }
+};
+
+// Password Strength Check Snippet
+validatePasswordStrength: (password) => {
+  let strength = 0;
+
+  // Check length
+  if (password.length >= 8) strength++;
+
+  // Check for lowercase letters
+  if (/[a-z]/.test(password)) strength++;
+
+  // Check for uppercase letters
+  if (/[A-Z]/.test(password)) strength++;
+
+  // Check for numbers
+  if (/\d/.test(password)) strength++;
+
+  // Check for special characters
+  if (/\W/.test(password)) strength++;
+
+  return strength;
+};
+
+// Navigate to src/store/store.ts for more info.
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+## Continued Development
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+In future projects, I plan to explore more advanced state management techniques and focus on improving accessibility features within my applications.
 
-### Continued development
+## Useful Resources
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Zustand Documentation](https://github.com/pmndrs/zustand) - Comprehensive guide to using Zustand for state management.
+- [Styled Components Docs](https://styled-components.com/docs) - Useful documentation for creating styled components.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- GitHub - [Evans Elabo](https://github.com/ellaboevans)
+- Twitter - [@dev_concept](https://www.twitter.com/dev_concept)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+I would like to thank the Recruitment Team at [AmaliTech](http://amalitech.org) for providing such a challenging and rewarding project.
