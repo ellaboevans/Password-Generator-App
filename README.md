@@ -1,6 +1,6 @@
 # Password Generator App Solution
 
-This is a solution to the Password Generator App Challenge Provided to me by [Amalitech](https://amalitech.org).
+This is a solution to the Password Generator App coding project Provided to me by [Amalitech](https://amalitech.org).
 
 ## Table of Contents
 
@@ -141,4 +141,4 @@ In future projects, I plan to explore more advanced state management techniques 
 
 ## Acknowledgments
 
-I would like to thank the Recruitment Team at [AmaliTech](http://amalitech.org) for providing such a challenging and rewarding project.
+I would like to thank the Recruitment Team at [AmaliTech](http://amalitech.org) for providing such a challenging and rewarding coding project.
