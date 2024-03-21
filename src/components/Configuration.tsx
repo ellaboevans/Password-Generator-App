@@ -23,12 +23,9 @@ function Configuration() {
     isLowercase,
     includeNumbers,
     includeSymbols,
-    getSliderValue,
     generatePassword,
     strengthValue,
   } = useStore((state) => ({
-    sliderValue: state.sliderValue,
-    getSliderValue: state.getSliderValue,
     setIsLowercase: state.setIsLowercase,
     isLowercase: state.isLowercase,
     setIsUppercase: state.setIsUppercase,
@@ -47,7 +44,6 @@ function Configuration() {
         min={MIN_PASSWORD_LENGTH}
         max={MAX_PASSWORD_LENGTH}
         classes="slider"
-        updateValue={getSliderValue}
       />
       <CheckBox
         checked={isUppercase}
