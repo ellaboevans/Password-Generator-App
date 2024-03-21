@@ -52,18 +52,23 @@ export const useStore = create<Store>((set, get) => ({
       element.style.border = `0.2rem solid ${COLOR_WHITE}`;
     }
 
-    if (value === 1) {
-      strengthColor = COLOR_RED;
-      set({ name: LEVEL_1 });
-    } else if (value === 2) {
-      strengthColor = COLOR_ORANGE;
-      set({ name: LEVEL_2 });
-    } else if (value === 3) {
-      strengthColor = COLOR_YELLOW;
-      set({ name: LEVEL_3 });
-    } else if (value === 4) {
-      strengthColor = COLOR_GREEN;
-      set({ name: LEVEL_4 });
+    switch (value) {
+      case 1:
+        strengthColor = COLOR_RED;
+        set({ name: LEVEL_1 });
+        break;
+      case 2:
+        strengthColor = COLOR_ORANGE;
+        set({ name: LEVEL_2 });
+        break;
+      case 3:
+        strengthColor = COLOR_YELLOW;
+        set({ name: LEVEL_3 });
+        break;
+      case 4:
+        strengthColor = COLOR_GREEN;
+        set({ name: LEVEL_4 });
+        break;
     }
 
     for (let level = 1; level <= value; level++) {
