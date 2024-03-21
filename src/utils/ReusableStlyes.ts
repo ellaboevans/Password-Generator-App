@@ -38,11 +38,10 @@ export const Button = styled.button<ButtonProps>`
     color: ${COLOR_GREEN};
   }
   &:disabled {
-    background-color: ${(props) => (props.disabled ? COLOR_GREY : COLOR_GREEN)};
+    background-color: ${(props) => props.disabled && COLOR_GREEN};
     color: ${(props) => (props.disabled ? COLOR_DARK_GREY : COLOR_WHITE)};
     cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
-    border: 0.1rem solid
-      ${(props) => (props.disabled ? COLOR_GREY : COLOR_GREEN)};
+    border: 0.1rem solid ${(props) => props.disabled && COLOR_GREEN};
   }
 `;
 
