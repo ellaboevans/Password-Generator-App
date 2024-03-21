@@ -43,12 +43,23 @@ Users should be able to:
 
 ### Built With
 
-- Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Vite](https://vitejs.dev/) - For build and development
 - [Styled Components](https://styled-components.com/) - For styles
 - [Zustand](https://github.com/pmndrs/zustand) - For State Management
 - [Vercel](https://vercel.com) - For deployment
+
+### Actions (Interactivity)
+
+- Generate Password
+- Copy Password to Computer's Clipboard
+- Password Strength Check
+- Enable/Disable Uppercase Letters
+- Enable/Disable Lowercase Letters
+- Enable/Disable Numbers
+- Enable/Disable Symbols
+- Adjust Password Length
+- Disabled Generate Password Button when password length is 0
 
 ### What I Learned
 
